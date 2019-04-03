@@ -5,11 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="ComplexType\" />
+    <Folder Include="Concreate\" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Abc.Core\Abc.Core.csproj" />
+    <ProjectReference Include="..\Abc.Entities\Abc.Entities.csproj" />
   </ItemGroup>
 
 </Project>
