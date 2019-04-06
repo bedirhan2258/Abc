@@ -7,10 +7,10 @@ namespace Abc.DataAccess.Concreate.EntityFramework
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=.\S2012; Database=Northwind; Trusted_Connection=true");
+            optionsBuilder.UseSqlServer(@"Data Source=.\S2012; Initial Catalog=Northwind; User Id=sa; Password=1");
         }
 
-        public DbSet<Product> Product { get; set; }
+        public DbSet<Product> Products { get; set; }
         public DbSet<Category> Categories { get; set; }
 
     }

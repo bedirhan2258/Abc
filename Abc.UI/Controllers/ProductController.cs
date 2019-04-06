@@ -1,5 +1,6 @@
 ﻿
 using Abc.Business.Abstract;
+using Abc.UI.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Abc.UI.Controllers
@@ -15,7 +16,13 @@ namespace Abc.UI.Controllers
 
         public ActionResult Index()
         {
-            return View();
+            var products = _productService.GetAll();
+            ProductListViewModel model = new ProductListViewModel
+            {
+                Products = products
+            };
+
+            return View(model);
         }
     }
 }

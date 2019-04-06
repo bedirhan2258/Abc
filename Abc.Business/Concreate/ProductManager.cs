@@ -30,7 +30,7 @@ namespace Abc.Business.Concreate
             _productDal.Update(product);
         }
 
-        public List<Product> GelAll()
+        public List<Product> GetAll()
         {
             return _productDal.GetList();
         }

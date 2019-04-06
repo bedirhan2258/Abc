@@ -6,7 +6,7 @@ namespace Abc.Business.Abstract
 {
     public interface IProductService
     {
-        List<Product> GelAll();
+        List<Product> GetAll();
         List<Product> GetByCategory(int categoryId);
         void Add(Product product);
         void Update(Product product);
