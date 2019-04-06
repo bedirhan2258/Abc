@@ -22,7 +22,7 @@ namespace Abc.Business.Concreate
 
         public void Delete(int productId)
         {
-            _productDal.Delete(productId);
+            _productDal.Delete(new Product { ProductId = productId });
         }
 
         public void Update(Product product)
