@@ -1,6 +1,8 @@
 ﻿using Abc.Business.Abstract;
 using Abc.Business.Concreate;
+using Abc.DataAccess.Abstract;
 using Abc.DataAccess.Concreate.EntityFramework;
+using Abc.UI.Middleware;
 using AbcNorthwind.DataAccess.Abstract;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -16,6 +18,8 @@ namespace Abc.UI
             services.AddMvc();
             services.AddScoped<IProductService, ProductManager>();
             services.AddScoped<IProductDal, EfProductDal>();
+            services.AddScoped<ICategoryService, CategoryManager>();
+            services.AddScoped<ICategoryDal, EfCategoryDal>();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
@@ -24,6 +28,12 @@ namespace Abc.UI
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            //package.json dosyasının wwwwroot içinde gözükmesi için yazıldı.
+            app.UseFileServer();
+
+            //extension method tanımlayıp yolunu verdik.
+            app.UseNodeModules(env.ContentRootPath);
 
             //Default olarak home controller index sayfasına git demek.
 

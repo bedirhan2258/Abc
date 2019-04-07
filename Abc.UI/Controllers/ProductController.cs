@@ -2,6 +2,7 @@
 using Abc.Business.Abstract;
 using Abc.UI.Models;
 using Microsoft.AspNetCore.Mvc;
+using System.Linq;
 
 namespace Abc.UI.Controllers
 {
@@ -14,12 +15,14 @@ namespace Abc.UI.Controllers
             _productService = productService;
         }
 
-        public ActionResult Index()
+        public ActionResult Index(int page = 1)
         {
+            int pageSize = 10;
+
             var products = _productService.GetAll();
             ProductListViewModel model = new ProductListViewModel
             {
-                Products = products
+                Products = products.Skip((page - 1) * pageSize).Take(pageSize).ToList()
             };
 
             return View(model);

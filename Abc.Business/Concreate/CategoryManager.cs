@@ -6,11 +6,11 @@ using Abc.Northwind.Entities.Concreate;
 
 namespace Abc.Business.Concreate
 {
-    public class ICategoryManager : ICategoryService
+    public class CategoryManager : ICategoryService
     {
         private ICategoryDal _categoryDal;
 
-        public ICategoryManager(ICategoryDal categoryDal)
+        public CategoryManager(ICategoryDal categoryDal)
         {
             _categoryDal = categoryDal;
         }
