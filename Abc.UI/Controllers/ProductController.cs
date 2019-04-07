@@ -15,11 +15,10 @@ namespace Abc.UI.Controllers
             _productService = productService;
         }
 
-        public ActionResult Index(int page = 1)
+        public ActionResult Index(int page = 1,int category=0)
         {
             int pageSize = 10;
-
-            var products = _productService.GetAll();
+            var products = _productService.GetByCategory(category);
             ProductListViewModel model = new ProductListViewModel
             {
                 Products = products.Skip((page - 1) * pageSize).Take(pageSize).ToList()
