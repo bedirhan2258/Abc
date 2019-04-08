@@ -20,6 +20,9 @@ namespace Abc.UI
             services.AddScoped<IProductDal, EfProductDal>();
             services.AddScoped<ICategoryService, CategoryManager>();
             services.AddScoped<ICategoryDal, EfCategoryDal>();
+            services.AddSession();
+            //Bunu eklemeksek session aktifleştirilmemiş hatası alırız.
+            services.AddDistributedMemoryCache();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
@@ -38,6 +41,7 @@ namespace Abc.UI
             //Default olarak home controller index sayfasına git demek.
 
             app.UseMvcWithDefaultRoute();
+            app.UseSession();
         }
     }
 }

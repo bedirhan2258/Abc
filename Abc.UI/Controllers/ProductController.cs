@@ -1,6 +1,7 @@
 ﻿
 using Abc.Business.Abstract;
 using Abc.UI.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Linq;
@@ -31,5 +32,7 @@ namespace Abc.UI.Controllers
 
             return View(model);
         }
+
+        
     }
 }
